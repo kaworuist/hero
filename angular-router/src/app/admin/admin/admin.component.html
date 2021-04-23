@@ -1,0 +1,10 @@
+<h3>ADMIN</h3>
+<nav>
+<!-- [routerLinkActiveOptions]="{ exact: true }"使得路径与'./'完全匹配时才给路由添加active样式
+    否则当路由指向'./crises'或'./heroes'时dashboard也会有active样式 -->
+  <a routerLink="./" routerLinkActive="active" 
+  [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+  <a routerLink="./crises" routerLinkActive="active">Manage Crises</a>
+  <a routerLink="./heroes" routerLinkActive="active">Manage Heroes</a>
+</nav>
+<router-outlet></router-outlet>

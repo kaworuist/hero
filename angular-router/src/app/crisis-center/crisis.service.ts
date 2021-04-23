@@ -1,25 +1,34 @@
+import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { Injectable } from '@angular/core';
-
-import { Observable, of } from 'rxjs';
-
+import { MessageService } from '../message.service';
 import { Crisis } from './crisis';
 import { CRISES } from './mock-crises';
-import { MessageService } from '../message.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CrisisService {
+  static nextCrisisId = 100;
+  private crises$: BehaviorSubject<Crisis[]> = new BehaviorSubject<Crisis[]>(CRISES);
 
   constructor(private messageService: MessageService) { }
 
-  getCrisis(id: number): Crisis|undefined {
-    this.messageService.add('CrisisService: fetched crisis');
-    return CRISES.find((item) => item.id = id);
+  getCrises() { return this.crises$; }
+
+  getCrisis(id: string) {
+    return this.getCrises().pipe(
+      map(crises => crises.find(crisis => crisis.id === +id))
+    );
   }
-  getCrises(): Observable<Crisis[]> {
-    // TODO: send the message _after_ fetching the crises
-    this.messageService.add('CrisisService: fetched crises');
-    return of(CRISES);
+
+  addCrisis(name: string) {
+    name = name.trim();
+    if (name) {
+      const crisis = { id: CrisisService.nextCrisisId++, name };
+      CRISES.push(crisis);
+      this.crises$.next(CRISES);
+    }
   }
 }
