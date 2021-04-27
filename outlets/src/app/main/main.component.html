@@ -1,0 +1,11 @@
+<nav>
+    <a routerLink='./' routerLinkActive="active">summary</a>
+    <a routerLink='./contact' routerLinkActive="active">contact</a>
+    <a routerLink='./me' routerLinkActive="active">me</a>
+    <a [routerLink]="['/main', { outlets: { page: ['chat'] } }]">chat</a>
+</nav>
+<router-outlet></router-outlet>
+<router-outlet name='page'></router-outlet>
+
+
+

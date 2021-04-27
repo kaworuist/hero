@@ -12,7 +12,7 @@ const appRoutes: Routes = [
     component: ComposeMessageComponent,
     outlet: 'popup'
   },
-  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
+  { path: '',   redirectTo: '/admin', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
