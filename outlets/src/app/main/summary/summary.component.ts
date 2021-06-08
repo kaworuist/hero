@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/http/http.service';
+
 
 @Component({
   selector: 'app-summary',
@@ -7,8 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public httpService: HttpService) { }
+  recv: any;
+  send: any;
+  get(): void {
+    this.httpService.get('appIm', 'getOfflineMsg', {to: this.httpService.loginInfo?.uname, startId: 0})
+    .subscribe(
+      resp => {
+        this.recv = resp;
+        console.log(resp);
+      }
+    );
+    this.httpService.get('appIm', 'getOfflineMsg', {from: this.httpService.loginInfo?.uname, startId: 0})
+    .subscribe(
+      resp => {
+        this.send = resp;
+        console.log(resp);
+      }
+    );
+  }
   ngOnInit(): void {
   }
 

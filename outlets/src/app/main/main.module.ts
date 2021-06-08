@@ -8,6 +8,7 @@ import { MeComponent } from './me/me.component';
 import { ChatComponent } from './chat/chat.component';
 import { MainComponent } from './main.component';
 import { SetComponent } from './set/set.component';
+import { HttpService } from '../http/http.service';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SetComponent } from './set/set.component';
   imports: [
     CommonModule,
     MainRoutingModule
-  ]
+  ],
+  providers: [HttpService]
 })
 export class MainModule { }
