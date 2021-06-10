@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/http/http.service';
+import { IdbService } from 'src/app/idb/idb.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { HttpService } from 'src/app/http/http.service';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(public httpService: HttpService) { }
+  constructor(public httpService: HttpService, public idbService: IdbService) { }
   recv: any;
   send: any;
   get(): void {

@@ -9,6 +9,7 @@ import { ChatComponent } from './chat/chat.component';
 import { MainComponent } from './main.component';
 import { SetComponent } from './set/set.component';
 import { HttpService } from '../http/http.service';
+import { IdbService } from '../idb/idb.service';
 
 
 @NgModule({
@@ -24,6 +25,6 @@ import { HttpService } from '../http/http.service';
     CommonModule,
     MainRoutingModule
   ],
-  providers: [HttpService]
+  providers: [IdbService]
 })
 export class MainModule { }

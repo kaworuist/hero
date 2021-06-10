@@ -14,7 +14,7 @@ export interface Resp {
     ret: string;
     info: any;
 }
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class HttpService {
     constructor(private http: HttpClient) {}
 

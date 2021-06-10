@@ -1,0 +1,11 @@
+<form action="" [formGroup]="profileForm">
+    <label for="">
+        name:
+        <input type="text" formControlName="name">
+    </label>
+    <label for="">
+        pwd:
+        <input type="text" formControlName="pwd">
+    </label>
+</form>
+<button (click)='login()'>login</button>

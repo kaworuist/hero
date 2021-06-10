@@ -14,17 +14,17 @@ export class MainComponent implements OnInit {
   constructor(private router: Router, public httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.httpService.login({uname: '3038', upwd: 'simton2202', override: 'true'})
-    .subscribe(
-      resp => {
-        if (resp.ret === 'err'){
-          console.log(resp.info);
-        }else{
-          this.httpService.loginInfo = {uname: '3038', token: resp.info.token, termtype: ''};
-          console.log(this.httpService.loginInfo);
-        }
-      }
-    );
+    // this.httpService.login({uname: '3038', upwd: 'simton2202', override: 'true'})
+    // .subscribe(
+    //   resp => {
+    //     if (resp.ret === 'err'){
+    //       console.log(resp.info);
+    //     }else{
+    //       this.httpService.loginInfo = {uname: '3038', token: resp.info.token, termtype: ''};
+    //       console.log(this.httpService.loginInfo);
+    //     }
+    //   }
+    // );
   }
 
 }
